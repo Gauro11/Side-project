@@ -21,7 +21,7 @@ class AuthController extends Controller
            
             $request->validate([
                 'email' => 'required|email',
-                'password' => 'requireddRemove-Item -Recurse -Force .git',
+                'password' => 'requiredd',
             ]);
     
            
