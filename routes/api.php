@@ -24,7 +24,7 @@ use App\Http\Controllers\userlistController;
     Route::post('create', [userlistController::class, 'create']); // Create a new user
     Route::post('/users/{id}', [userlistController::class, 'edit']);
     Route::post('/delete/{id}', [userlistController::class, 'destroy']);
-    Route::post('searchuser', [userlistController::class, 'searchuser']); 
+    Route::post('searchuser', [userlistController::class, 'searchuse']); 
 
 
 ///////////////////////////////////LOGIN//////////////////////////////////////////
