@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Milbert Garinga - Full Stack Developer</title>
+    <link rel="icon" type="image/jpeg" href="mg1.jpg">
+    <title>Milbert Garinga</title>
     <style>
         * {
             margin: 0;
@@ -800,126 +801,249 @@
 <section id="contact">
   <div class="container">
     <h2 class="section-header">Get In <span>Touch</span></h2>
-    <div class="contact-content">
-      <p class="contact-text">
-        I'm currently available for freelance work and full-time opportunities. If you have a project in mind or just want to say hello, feel free to reach out!
+    <div class="contact-content text-center">
+      <p class="contact-text mb-4">
+        I'm currently available for freelance work and full-time opportunities.  
+        If you have a project in mind or just want to say hello, feel free to reach out!
       </p>
       <button id="sendMessageBtn" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#messageModal">
         Send Message
       </button>
 
-      <div class="contact-info mt-4">
-        <div class="contact-item">
-          📧 <a href="mailto:milbertgaringa5@gmail.com">milbertgaringa5@gmail.com</a>
-        </div>
-        <div class="contact-item">📱 +63 961 513 8289</div>
-        <div class="contact-item">📍 Malolos, Bulacan, Philippines</div>
-      </div>
+    <div class="contact-info mt-4">
+      <div class="contact-item">📧 <a href="mailto:milbertgaringa5@gmail.com">milbertgaringa5@gmail.com</a></div>
+      <div class="contact-item">📱 +63 961 513 8289</div>
+      <div class="contact-item">📍 Malolos, Bulacan, Philippines</div>
     </div>
   </div>
 </section>
 
-<!-- Message Modal -->
-<!-- ✨ Modern Send Message Modal -->
+<!-- ✨ Message Modal -->
 <div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
     <form id="contactForm" class="w-100">
-      <div class="modal-content custom-modal">
-        <div class="modal-header border-0">
-          <h5 class="modal-title" id="messageModalLabel">Send a Message</h5>
+      <div class="modal-content modern-modal">
+        <div class="modal-header border-0 d-flex justify-content-between align-items-center">
+          <h5 class="modal-title fw-bold" id="messageModalLabel">💬 Send a Message</h5>
           <button type="button" class="btn-close custom-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
 
         <div class="modal-body">
-          <div class="mb-3">
-            <label for="fullName" class="form-label">Full Name</label>
-            <input type="text" class="form-control custom-input" id="fullName" required>
-          </div>
+          <div class="row g-4">
+            <div class="col-md-6">
+              <label for="fullName" class="form-label">Full Name</label>
+              <input type="text" class="form-control custom-input" id="fullName" placeholder="John Doe" required>
+            </div>
 
-          <div class="mb-3">
-            <label for="email" class="form-label">Email Address</label>
-            <input type="email" class="form-control custom-input" id="email" required>
-          </div>
+            <div class="col-md-6">
+              <label for="email" class="form-label">Email Address</label>
+              <input type="email" class="form-control custom-input" id="email" placeholder="john.doe@email.com" required>
+            </div>
 
-          <div class="mb-3">
-            <label for="message" class="form-label">Message</label>
-            <textarea class="form-control custom-input" id="message" rows="4" required></textarea>
+            <div class="col-12">
+              <label for="message" class="form-label">Message</label>
+              <textarea class="form-control custom-input textarea-field" id="message" placeholder="Write your message here..." required></textarea>
+            </div>
           </div>
         </div>
 
-        <div class="modal-footer border-0">
-          <button type="submit" class="btn btn-primary send-btn">Send Message</button>
+        <div class="modal-footer border-0 d-flex justify-content-center gap-3">
+          <button type="button" class="btn close-btn" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn send-btn">Send Message</button>
         </div>
       </div>
     </form>
   </div>
 </div>
+
 <style>
-/* ✨ Custom Modal Design */
-.custom-modal {
-  background: rgba(20, 20, 25, 0.9);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(34, 211, 238, 0.3);
-  border-radius: 16px;
-  box-shadow: 0 0 40px rgba(34, 211, 238, 0.15);
-  color: #e4e4e7;
-  animation: modalFadeIn 0.4s ease;
+  /* ✨ Center Modal & Main Style */
+  .modal-dialog-centered {
+    display: flex;
+    align-items: center;
+    min-height: calc(100vh - 1rem);
+  }
+
+  .modern-modal {
+    background: rgba(20, 20, 25, 0.96);
+    backdrop-filter: blur(25px);
+    border: 1px solid rgba(34, 211, 238, 0.25);
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(34, 211, 238, 0.15);
+    color: #f4f4f5;
+    animation: modalFadeIn 0.4s ease;
+    padding: 0.5rem 0;
+  }
+
+  .modal-dialog.modal-lg {
+    max-width: 700px;
+    margin: auto;
+  }
+
+  .modal-title {
+    font-size: 1.6em;
+    color: #22d3ee;
+    font-weight: 700;
+  }
+
+  .modal-body {
+    padding: 1.8rem 2.5rem;
+  }
+
+  .modal-footer {
+    padding: 1.5rem;
+  }
+
+  /* ✨ Equal Inputs & Form Style */
+  .custom-input {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    color: #fff;
+    padding: 0.95rem 1.1rem;
+    font-size: 1rem;
+    width: 100%;
+    height: 48px;
+    transition: all 0.3s ease;
+  }
+
+  .custom-input:focus {
+    border-color: #22d3ee;
+    box-shadow: 0 0 12px rgba(34, 211, 238, 0.35);
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  .textarea-field {
+    min-height: 140px;
+    resize: none;
+  }
+
+  .form-label {
+    font-weight: 500;
+    margin-bottom: 0.4rem;
+    color: #e4e4e7;
+  }
+
+  /* ✨ Buttons */
+  .send-btn {
+    background: linear-gradient(135deg, #22d3ee, #06b6d4);
+    color: #0a0a0a;
+    font-weight: 600;
+    padding: 12px 40px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    border: none;
+    font-size: 1rem;
+  }
+
+  .send-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 25px rgba(34, 211, 238, 0.45);
+  }
+
+  .close-btn {
+    background: rgba(255, 255, 255, 0.12);
+    color: #e4e4e7;
+    font-weight: 600;
+    padding: 12px 36px;
+    border-radius: 10px;
+    border: none;
+    transition: all 0.3s ease;
+  }
+
+  .close-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+  }
+
+  /* ✨ Close Icon */
+  .custom-close {
+    filter: invert(1) brightness(1.6);
+    opacity: 0.8;
+    transition: 0.25s ease;
+  }
+
+  .custom-close:hover {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+
+  /* ✨ Animation */
+  @keyframes modalFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-15px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* ✨ Responsive Design */
+  @media (max-width: 768px) {
+    .modal-body {
+      padding: 1.2rem;
+    }
+    .send-btn,
+    .close-btn {
+      width: 100%;
+      padding: 12px 0;
+    }
+    .modal-footer {
+      flex-direction: column;
+      gap: 10px;
+    }
+    .custom-input {
+      height: auto;
+    }
+  }
+  /* Popup container */
+.popup {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #28a745;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 9999;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.4s ease;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 16px;
 }
 
-.custom-modal .modal-title {
-  font-size: 1.5em;
-  font-weight: 700;
-  color: #22d3ee;
+/* Hidden state */
+.hidden {
+  display: none;
 }
 
-.custom-close {
-  filter: invert(1) brightness(1.5);
-  opacity: 0.8;
-  transition: 0.3s;
-}
-.custom-close:hover {
+/* Animate when showing */
+.popup.show {
   opacity: 1;
-  transform: scale(1.1);
+  transform: translateY(0);
 }
 
-/* ✨ Inputs */
-.custom-input {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #fff;
-  border-radius: 8px;
-  transition: all 0.3s;
+/* Error color */
+.popup.error {
+  background: #dc3545;
 }
 
-.custom-input:focus {
-  border-color: #22d3ee;
-  box-shadow: 0 0 10px rgba(34, 211, 238, 0.3);
-  background: rgba(255, 255, 255, 0.08);
-  color: #fff;
-}
-
-/* ✨ Send Button */
-.send-btn {
-  background: #22d3ee;
-  color: #0a0a0a;
-  font-weight: 600;
-  padding: 10px 28px;
-  border-radius: 8px;
-  transition: all 0.3s;
-}
-
-.send-btn:hover {
-  background: #06b6d4;
-  transform: translateY(-2px);
-  box-shadow: 0 0 20px rgba(34, 211, 238, 0.4);
-}
-
-/* ✨ Fade Animation */
-@keyframes modalFadeIn {
-  from { opacity: 0; transform: translateY(-20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
 </style>
+
+<!-- ✅ Success / Error Popup -->
+<div id="popup" class="popup hidden">
+  <div class="popup-content">
+    <span id="popupIcon">✅</span>
+    <p id="popupMessage">Message sent successfully!</p>
+  </div>
+</div>
+
 
 
 
@@ -930,10 +1054,28 @@
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
 <script>
-  // ✅ Replace with your actual EmailJS keys
-  emailjs.init("ymaOOfW0kzk6EdQtO"); 
+  emailjs.init("ymaOOfW0kzk6EdQtO");
 
-  document.getElementById('contactForm').addEventListener('submit', function(event) {
+  const form = document.getElementById('contactForm');
+  const popup = document.getElementById('popup');
+  const popupMessage = document.getElementById('popupMessage');
+  const popupIcon = document.getElementById('popupIcon');
+
+  function showPopup(message, isError = false) {
+    popupMessage.textContent = message;
+    popupIcon.textContent = isError ? '❌' : '✅';
+    popup.classList.remove('hidden', 'error');
+    if (isError) popup.classList.add('error');
+    popup.classList.add('show');
+
+    // Hide after 3 seconds
+    setTimeout(() => {
+      popup.classList.remove('show');
+      setTimeout(() => popup.classList.add('hidden'), 400);
+    }, 3000);
+  }
+
+  form.addEventListener('submit', function(event) {
     event.preventDefault();
 
     const params = {
@@ -944,14 +1086,16 @@
 
     emailjs.send("service_0955xsx", "template_nc81owq", params)
       .then(function() {
-        alert("✅ Message sent successfully to milbertgaringa5@gmail.com!");
-        document.getElementById('contactForm').reset();
+        showPopup("Message sent successfully to milbertgaringa5@gmail.com!");
+        form.reset();
       }, function(error) {
-        alert("❌ Failed to send message. Please try again later.");
+        showPopup("Failed to send message. Please try again later.", true);
         console.error(error);
       });
   });
 </script>
+
+
 
 
 
