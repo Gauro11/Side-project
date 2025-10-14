@@ -20,27 +20,7 @@
             line-height: 1.6;
         }
 
-        .cursor-dot {
-            width: 8px;
-            height: 8px;
-            background: #22d3ee;
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 10000;
-            transition: transform 0.15s ease;
-        }
-
-        .cursor-outline {
-            width: 30px;
-            height: 30px;
-            border: 2px solid #22d3ee;
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 10000;
-            transition: all 0.15s ease;
-        }
+       
 
         nav {
             position: fixed;
