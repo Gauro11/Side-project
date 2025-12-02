@@ -683,8 +683,9 @@
 <div class="project-card">
   <h3 class="project-title">Cleaning Service Website</h3>
  <p class="project-desc">
-  A fully featured Cleaning Service Management Platform built with interactive dashboards, real-time data updates, and a clean, intuitive user interface. Designed to support multiple roles—Admin, Customer, and Cleaner—the system streamlines the entire workflow, from booking and scheduling to job tracking and cost management. Administrators gain access to powerful analytics and user management tools, customers can easily schedule services and monitor their booking status, and cleaners receive organized task assignments with live progress updates. The platform emphasizes performance, clarity, and seamless user experience, making it a modern, scalable solution suitable for real-world operational environments.
+  A comprehensive cleaning service platform designed to manage bookings, monitor service progress, and coordinate cleaner assignments using real-time dashboards and intuitive workflow tools.
 </p>
+
 
   <p class="project-tech">Html • CSS  • JavaScript  • MVC • MySQL</p>
 </div>
