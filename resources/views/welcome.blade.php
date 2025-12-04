@@ -592,9 +592,9 @@
                         <a href="#projects" class="btn btn-secondary">View Work</a>
                     </div>
                     <div class="social-links">
-                        <a href="mailto:milbertgaringa5@gmail.com" class="social-link">📧</a>
+                        {{-- <a href="mailto:milbertgaringa5@gmail.com" class="social-link">📧</a>
                         <a href="#" class="social-link">💼</a>
-                        <a href="#" class="social-link">🔗</a>
+                        <a href="#" class="social-link">🔗</a> --}}
                     </div>
                 </div>
             </div>
@@ -626,12 +626,12 @@
                 <div class="skill-card">
                     <h3 class="skill-title">JavaScript / TypeScript</h3>
                     <p class="skill-desc">
-                        Expert in modern JavaScript (ES6+) and TypeScript, building type-safe, scalable applications with clean architecture and industry best practices.
+                        Proficient in modern JavaScript and TypeScript, building type-safe, scalable applications with clean architecture and industry best practices.
                     </p>
                 </div>
                 
                 <div class="skill-card">
-                    <h3 class="skill-title">Laravel / Backend</h3>
+                    <h3 class="skill-title">PHP Laravel / Backend</h3>
                     <p class="skill-desc">
                         Experienced in backend development with Laravel framework, creating robust, secure server-side applications with elegant code structure.
                     </p>
@@ -709,6 +709,20 @@
     <img src="cho2.png" alt="Image 2">
     <img src="cho3.png" alt="Image 3">
     <img src="cho4.png" alt="Image 4">
+  </div>
+</div>
+
+
+<!-- 🖼️ Modal 3 (Cleaning Service) -->
+<div id="galleryModal3" class="modal">
+  <span class="close" onclick="closeGallery('galleryModal3')">&times;</span>
+  <div class="modal-content">
+     <img src="clean6.png" alt="Image 1">
+    <img src="clean5.png" alt="Image 2">
+    <img src="clean4.png" alt="Image 3">
+    <img src="clean3.png" alt="Image 4">
+     <img src="clean2.png" alt="Image 5">
+      <img src="clean1.png" alt="Image 6">
   </div>
 </div>
 
