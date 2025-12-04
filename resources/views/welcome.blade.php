@@ -681,7 +681,7 @@
 
 <!-- 📊 Project 3 -->
 <div class="project-card" onclick="openGallery('galleryModal3')">
-  <img src="cleaning.png" alt="Cleaning Service Screenshot" class="project-image">
+  <img src="clean5.png" alt="Cleaning Service Screenshot" class="project-image">
   <h3 class="project-title">Cleaning Service Website</h3>
   <p class="project-desc">
     A comprehensive cleaning service platform designed to manage bookings, monitor service progress, and coordinate cleaner assignments using real-time dashboards and intuitive workflow tools.
@@ -717,11 +717,10 @@
   <span class="close" onclick="closeGallery('galleryModal3')">&times;</span>
   <div class="modal-content">
      <img src="clean6.png" alt="Image 1">
-    <img src="clean5.png" alt="Image 2">
-    <img src="clean4.png" alt="Image 3">
-    <img src="clean3.png" alt="Image 4">
-     <img src="clean2.png" alt="Image 5">
-      <img src="clean1.png" alt="Image 6">
+    <img src="clean4.png" alt="Image 2">
+    <img src="clean3.png" alt="Image 3">
+     <img src="clean2.png" alt="Image 4">
+      <img src="clean1.png" alt="Image 5">
   </div>
 </div>
 
