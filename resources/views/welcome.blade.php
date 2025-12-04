@@ -719,7 +719,7 @@
      <img src="clean6.png" alt="Image 1">
     <img src="clean4.png" alt="Image 2">
     <img src="clean3.png" alt="Image 3">
-     <img src="clean2.png" alt="Image 4">
+     
       <img src="clean1.png" alt="Image 5">
   </div>
 </div>
