@@ -680,14 +680,13 @@
 </div>
 
 <!-- 📊 Project 3 -->
-<div class="project-card">
+<div class="project-card" onclick="openGallery('galleryModal3')">
+  <img src="cleaning.png" alt="Cleaning Service Screenshot" class="project-image">
   <h3 class="project-title">Cleaning Service Website</h3>
- <p class="project-desc">
-  A comprehensive cleaning service platform designed to manage bookings, monitor service progress, and coordinate cleaner assignments using real-time dashboards and intuitive workflow tools.
-</p>
-
-
-  <p class="project-tech">Html • CSS  • JavaScript  • MVC • MySQL</p>
+  <p class="project-desc">
+    A comprehensive cleaning service platform designed to manage bookings, monitor service progress, and coordinate cleaner assignments using real-time dashboards and intuitive workflow tools.
+  </p>
+  <p class="project-tech">HTML • CSS • JavaScript • MVC • MySQL</p>
 </div>
 </section>
 
