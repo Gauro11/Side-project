@@ -950,11 +950,10 @@
                 Get the mobile app version of my portfolio! Works offline and provides a native app experience on your Android device.
             </p>
             <div class="modal-buttons">
-                <a href="downloads/mg-portfolio.apk" 
-                   class="btn-download-apk" 
-                   download="MG-Portfolio.apk">
-                    Download APK (5MB)
-                </a>
+               <a href="{{ url('download-apk') }}" 
+   class="btn-download-apk">
+    Download APK (5MB)
+</a>
                 <button class="btn-cancel-download" onclick="closeDownloadModal()">Cancel</button>
             </div>
             <p style="color: #71717a; font-size: 0.85em; margin-top: 20px;">

@@ -18,10 +18,8 @@ Route::get('/download-apk', function () {
     $file = public_path('downloads/mg-portfolio.apk');
     
     if (file_exists($file)) {
-        return response()->download($file, 'MG-Portfolio.apk', [
-            'Content-Type' => 'application/vnd.android.package-archive',
-        ]);
+        return response()->download($file, 'MG-Portfolio.apk');
     }
     
-    abort(404, 'APK file not found');
-})->name('download.apk');
+    return response()->json(['error' => 'File not found'], 404);
+});
