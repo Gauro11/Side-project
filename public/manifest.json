@@ -1,28 +1,24 @@
 {
-  "background_color": "#ffffff",
-  "dir": "ltr",
-  "display": "standalone",
-  "name": "Milbert Portfolio",
-  "orientation": "any",
-  "scope": "/",
-  "short_name": "Milbert",
+  "name": "Milbert Garinga Portfolio",
+  "short_name": "MG Portfolio",
+  "description": "Full Stack Web Developer Portfolio - Milbert Garinga",
   "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
   "theme_color": "#22d3ee",
+  "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/mg1.jpg",
-      "type": "image/jpeg",
-      "sizes": "240x240"
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
-      "src": "/icon-192.png",
+      "src": "icon-512.png",
+      "sizes": "512x512",
       "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "/icon-512.png",
-      "type": "image/png",
-      "sizes": "512x512"
+      "purpose": "any maskable"
     }
   ]
 }
