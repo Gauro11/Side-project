@@ -1,0 +1,38 @@
+{
+  "background_color": "#ffffff",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "milbert-portfolio.onrender",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "milbert-portfolio.onrender",
+  "start_url": "/",
+  "theme_color": "#22d3ee",
+  "icons": [
+    {
+      "src": "https://milbert-portfolio.onrender.com/mg1.jpg",
+      "type": "image/jpeg",
+      "sizes": "240x240",
+      "isSquare": true,
+      "isPng": false,
+      "isWebp": false,
+      "isJpg": true,
+      "width": 240,
+      "is512x512": false,
+      "is256x256": false,
+      "is192x192": false
+    },
+    {
+      "src": "https://milbert-portfolio.onrender.com/favicon.ico",
+      "type": "image/x-icon",
+      "isSquare": false,
+      "isPng": false,
+      "isWebp": false,
+      "isJpg": false,
+      "width": 0,
+      "is512x512": false,
+      "is256x256": false,
+      "is192x192": false
+    }
+  ]
+}
