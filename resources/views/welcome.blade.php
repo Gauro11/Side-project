@@ -1241,5 +1241,12 @@ emailjs.send("service_0955xsx", "template_nc81owq", params)
   });
 });
 </script>
+<script>
+     if ('serviceWorker' in navigator) {
+       navigator.serviceWorker.register('/sw.js')
+         .then(reg => console.log('Service Worker registered'))
+         .catch(err => console.log('Service Worker registration failed'));
+     }
+   </script>
 </body>
 </html></parameter>
