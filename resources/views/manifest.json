@@ -1,7 +1,7 @@
 {
   "name": "Milbert Garinga Portfolio",
   "short_name": "MG Portfolio",
-  "description": "Full Stack Web Developer Portfolio",
+  "description": "Full Stack Web Developer Portfolio - Milbert Garinga",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#0a0a0a",
@@ -9,15 +9,15 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "mg1.jpg",
+      "src": "icon-192.png",
       "sizes": "192x192",
-      "type": "image/jpeg",
+      "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "mg1.jpg",
+      "src": "icon-512.png",
       "sizes": "512x512",
-      "type": "image/jpeg",
+      "type": "image/png",
       "purpose": "any maskable"
     }
   ]
