@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/jpeg" href="mg1.jpg">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#22d3ee">
     <title>Milbert Garinga</title>
     <style>
         * {
@@ -19,8 +21,6 @@
             overflow-x: hidden;
             line-height: 1.6;
         }
-
-       
 
         nav {
             position: fixed;
@@ -52,6 +52,7 @@
         .nav-links {
             display: flex;
             gap: 40px;
+            align-items: center;
         }
 
         .nav-link {
@@ -64,6 +65,156 @@
 
         .nav-link:hover {
             color: #22d3ee;
+        }
+
+        /* Download APK Button in Nav */
+        .download-apk-btn {
+            background: linear-gradient(135deg, #22d3ee, #06b6d4);
+            color: #0a0a0a;
+            padding: 10px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(34, 211, 238, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+
+        .download-apk-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(34, 211, 238, 0.5);
+        }
+
+        /* Floating Download Button */
+        .floating-download {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: none;
+        }
+
+        .floating-download .floating-btn {
+            background: linear-gradient(135deg, #22d3ee, #06b6d4);
+            color: #0a0a0a;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 5px 25px rgba(34, 211, 238, 0.4);
+            transition: all 0.3s;
+            animation: pulse 2s infinite;
+            border: none;
+            cursor: pointer;
+        }
+
+        .floating-download .floating-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(34, 211, 238, 0.6);
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 5px 25px rgba(34, 211, 238, 0.4);
+            }
+            50% {
+                box-shadow: 0 5px 35px rgba(34, 211, 238, 0.7);
+            }
+        }
+
+        /* Download Modal */
+        .download-modal {
+            display: none;
+            position: fixed;
+            z-index: 10002;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            align-items: center;
+            justify-content: center;
+        }
+
+        .download-modal.active {
+            display: flex;
+        }
+
+        .download-modal-content {
+            background: rgba(20, 20, 25, 0.95);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(34, 211, 238, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 500px;
+            text-align: center;
+            animation: modalSlideIn 0.3s ease;
+            position: relative;
+        }
+
+        .modal-icon {
+            font-size: 80px;
+            margin-bottom: 20px;
+        }
+
+        .modal-title-download {
+            font-size: 2em;
+            color: #22d3ee;
+            margin-bottom: 15px;
+        }
+
+        .modal-description-download {
+            color: #a1a1aa;
+            line-height: 1.8;
+            margin-bottom: 30px;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-download-apk {
+            background: linear-gradient(135deg, #22d3ee, #06b6d4);
+            color: #0a0a0a;
+            padding: 15px 40px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-download-apk:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(34, 211, 238, 0.5);
+        }
+
+        .btn-cancel-download {
+            background: rgba(255, 255, 255, 0.1);
+            color: #e4e4e7;
+            padding: 15px 40px;
+            border-radius: 10px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-cancel-download:hover {
+            background: rgba(255, 255, 255, 0.2);
         }
 
         .container {
@@ -424,6 +575,21 @@
             .skills-grid {
                 grid-template-columns: 1fr;
             }
+
+            /* Show floating button on mobile, hide nav button */
+            .floating-download {
+                display: block;
+            }
+            
+            .download-apk-btn {
+                display: none !important;
+            }
+        }
+
+        @media (min-width: 969px) {
+            .floating-download {
+                display: none;
+            }
         }
 
         html {
@@ -446,14 +612,7 @@
         }
         .project-image {
     width: 100%;
-    height: 180px; /* adjust as needed */
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 10px;
-}
-.project-image {
-    width: 100%;
-    height: 180px; /* adjust as needed */
+    height: 180px;
     object-fit: cover;
     border-radius: 10px;
     margin-bottom: 10px;
@@ -546,7 +705,210 @@
             transform: scale(1.05);
             border-color: #22d3ee;
         }
-        
+
+  .project-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+
+  .modal-content {
+    margin: 5% auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    width: 80%;
+  }
+
+  .modal-content img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  .close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .modal-dialog-centered {
+    display: flex;
+    align-items: center;
+    min-height: calc(100vh - 1rem);
+  }
+
+  .modern-modal {
+    background: rgba(20, 20, 25, 0.96);
+    backdrop-filter: blur(25px);
+    border: 1px solid rgba(34, 211, 238, 0.25);
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(34, 211, 238, 0.15);
+    color: #f4f4f5;
+    animation: modalFadeIn 0.4s ease;
+    padding: 0.5rem 0;
+  }
+
+  .modal-dialog.modal-lg {
+    max-width: 700px;
+    margin: auto;
+  }
+
+  .modal-body {
+    padding: 1.8rem 2.5rem;
+  }
+
+  .modal-footer {
+    padding: 1.5rem;
+  }
+
+  .custom-input {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    color: #fff;
+    padding: 0.95rem 1.1rem;
+    font-size: 1rem;
+    width: 100%;
+    height: 48px;
+    transition: all 0.3s ease;
+  }
+
+  .custom-input:focus {
+    border-color: #22d3ee;
+    box-shadow: 0 0 12px rgba(34, 211, 238, 0.35);
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  .textarea-field {
+    min-height: 140px;
+    resize: none;
+  }
+
+  .form-label {
+    font-weight: 500;
+    margin-bottom: 0.4rem;
+    color: #e4e4e7;
+  }
+
+  .send-btn {
+    background: linear-gradient(135deg, #22d3ee, #06b6d4);
+    color: #0a0a0a;
+    font-weight: 600;
+    padding: 12px 40px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    border: none;
+    font-size: 1rem;
+  }
+
+  .send-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 25px rgba(34, 211, 238, 0.45);
+  }
+
+  .close-btn {
+    background: rgba(255, 255, 255, 0.12);
+    color: #e4e4e7;
+    font-weight: 600;
+    padding: 12px 36px;
+    border-radius: 10px;
+    border: none;
+    transition: all 0.3s ease;
+  }
+
+  .close-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+  }
+
+  .custom-close {
+    filter: invert(1) brightness(1.6);
+    opacity: 0.8;
+    transition: 0.25s ease;
+  }
+
+  .custom-close:hover {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+
+  @keyframes modalFadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-15px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .modal-body {
+      padding: 1.2rem;
+    }
+    .send-btn,
+    .close-btn {
+      width: 100%;
+      padding: 12px 0;
+    }
+    .modal-footer {
+      flex-direction: column;
+      gap: 10px;
+    }
+    .custom-input {
+      height: auto;
+    }
+  }
+
+.popup {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #28a745;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 9999;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.4s ease;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 16px;
+}
+
+.hidden {
+  display: none;
+}
+
+.popup.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.popup.error {
+  background: #dc3545;
+}
 
     </style>
 </head>
@@ -563,9 +925,43 @@
                 <a href="#skills" class="nav-link">Skills</a>
                 <a href="#projects" class="nav-link">Projects</a>
                 <a href="#contact" class="nav-link">Contact</a>
+                
+                <!-- Download APK Button -->
+                <button class="download-apk-btn" onclick="openDownloadModal()">
+                    📱 Get App
+                </button>
             </div>
         </div>
     </nav>
+
+    <!-- Floating Download Button (Mobile) -->
+    <div class="floating-download">
+        <button class="floating-btn" onclick="openDownloadModal()">
+            📱 Download App
+        </button>
+    </div>
+
+    <!-- Download Modal -->
+    <div id="downloadModal" class="download-modal">
+        <div class="download-modal-content">
+            <div class="modal-icon">📱</div>
+            <h2 class="modal-title-download">Download Portfolio App</h2>
+            <p class="modal-description-download">
+                Get the mobile app version of my portfolio! Works offline and provides a native app experience on your Android device.
+            </p>
+            <div class="modal-buttons">
+                <a href="downloads/mg-portfolio.apk" 
+                   class="btn-download-apk" 
+                   download="MG-Portfolio.apk">
+                    Download APK (5MB)
+                </a>
+                <button class="btn-cancel-download" onclick="closeDownloadModal()">Cancel</button>
+            </div>
+            <p style="color: #71717a; font-size: 0.85em; margin-top: 20px;">
+                💡 Enable "Install from Unknown Sources" in your Android settings
+            </p>
+        </div>
+    </div>
 
     <section id="home">
         <div class="container">
@@ -573,9 +969,7 @@
                 <div class="profile-section">
                     <div class="profile-image-container">
                         <div class="profile-image-wrapper">
-                            <!-- Replace with your image -->
-                            
-                             <img src="profile.jpg" alt="Milbert Garinga" class="profile-image"> 
+                            <img src="profile.jpg" alt="Milbert Garinga" class="profile-image"> 
                         </div>
                     </div>
                 </div>
@@ -592,9 +986,6 @@
                         <a href="#projects" class="btn btn-secondary">View Work</a>
                     </div>
                     <div class="social-links">
-                        {{-- <a href="mailto:milbertgaringa5@gmail.com" class="social-link">📧</a>
-                        <a href="#" class="social-link">💼</a>
-                        <a href="#" class="social-link">🔗</a> --}}
                     </div>
                 </div>
             </div>
@@ -654,12 +1045,10 @@
         </div>
     </section>
 
-    <section id="projects">
+<section id="projects">
   <div class="container">
     <h2 class="section-header">Featured <span>Projects</span></h2>
     <div class="projects-grid">
-      
-      <!-- 🌾 Project 1 -->
 <div class="project-card" onclick="openGallery('galleryModal')">
   <img src="pagsasaka.png" alt="E-Commerce Platform Screenshot" class="project-image">
   <h3 class="project-title">E-Commerce Platform</h3>
@@ -668,8 +1057,6 @@
   </p>
   <p class="project-tech">Laravel • MySQL • JavaScript</p>
 </div>
-
-<!-- 🧩 Project 2 -->
 <div class="project-card" onclick="openGallery('galleryModal2')">
   <img src="cho.png" alt="CHO Screenshot" class="project-image">
   <h3 class="project-title">City Health Office</h3>
@@ -678,8 +1065,6 @@
   </p>
   <p class="project-tech">Blade • PHP • MySQL • JavaScript</p>
 </div>
-
-<!-- 📊 Project 3 -->
 <div class="project-card" onclick="openGallery('galleryModal3')">
   <img src="clean5.png" alt="Cleaning Service Screenshot" class="project-image">
   <h3 class="project-title">Cleaning Service Website</h3>
@@ -688,9 +1073,9 @@
   </p>
   <p class="project-tech">HTML • CSS • JavaScript • MVC • MySQL</p>
 </div>
+</div>
+</div>
 </section>
-
-<!-- 🖼️ Modal 1 (Pagsasaka) -->
 <div id="galleryModal" class="modal">
   <span class="close" onclick="closeGallery('galleryModal')">&times;</span>
   <div class="modal-content">
@@ -699,8 +1084,6 @@
     <img src="pagsasaka3.png" alt="Image 3">
   </div>
 </div>
-
-<!-- 🖼️ Modal 2 (CHO) -->
 <div id="galleryModal2" class="modal">
   <span class="close" onclick="closeGallery('galleryModal2')">&times;</span>
   <div class="modal-content">
@@ -710,88 +1093,15 @@
     <img src="cho4.png" alt="Image 4">
   </div>
 </div>
-
-
-<!-- 🖼️ Modal 3 (Cleaning Service) -->
 <div id="galleryModal3" class="modal">
   <span class="close" onclick="closeGallery('galleryModal3')">&times;</span>
   <div class="modal-content">
      <img src="clean6.png" alt="Image 1">
     <img src="clean4.png" alt="Image 2">
     <img src="clean3.png" alt="Image 3">
-     
       <img src="clean1.png" alt="Image 5">
   </div>
 </div>
-
-<!-- ✅ CSS -->
-<style>
-  .project-card:hover {
-    transform: translateY(-5px);
-  }
-
-  /* 🖼️ Modal Styling */
-  .modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.8);
-  }
-
-  .modal-content {
-    margin: 5% auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    width: 80%;
-  }
-
-  .modal-content img {
-    width: 300px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-  }
-
-  .close {
-    position: absolute;
-    top: 20px;
-    right: 35px;
-    color: #fff;
-    font-size: 40px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-</style>
-
-<!-- ✅ JavaScript -->
-<script>
-  function openGallery(modalId) {
-    document.getElementById(modalId).style.display = "block";
-  }
-
-  function closeGallery(modalId) {
-    document.getElementById(modalId).style.display = "none";
-  }
-
-  // Close when clicking outside
-  window.onclick = function(event) {
-    if (event.target.classList.contains('modal')) {
-      event.target.style.display = "none";
-    }
-  }
-</script> 
-
-    
-
-    <!-- Contact Section -->
-<!-- Contact Section -->
 <section id="contact">
   <div class="container">
     <h2 class="section-header">Get In <span>Touch</span></h2>
@@ -803,16 +1113,13 @@
       <button id="sendMessageBtn" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#messageModal">
         Send Message
       </button>
-
-    <div class="contact-info mt-4">
-      <div class="contact-item">📧 <a href="mailto:milbertgaringa5@gmail.com">milbertgaringa5@gmail.com</a></div>
-      <div class="contact-item">📱 +63 961 513 8289</div>
-      <div class="contact-item">📍 Malolos, Bulacan, Philippines</div>
-    </div>
+<div class="contact-info mt-4">
+  <div class="contact-item">📧 <a href="mailto:milbertgaringa5@gmail.com">milbertgaringa5@gmail.com</a></div>
+  <div class="contact-item">📱 +63 961 513 8289</div>
+  <div class="contact-item">📍 Malolos, Bulacan, Philippines</div>
+</div>
   </div>
 </section>
-
-<!-- ✨ Message Modal -->
 <div class="modal fade" id="messageModal" tabindex="-1" aria-labelledby="messageModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered modal-lg">
     <form id="contactForm" class="w-100">
@@ -821,311 +1128,119 @@
           <h5 class="modal-title fw-bold" id="messageModalLabel">💬 Send a Message</h5>
           <button type="button" class="btn-close custom-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-
-        <div class="modal-body">
-          <div class="row g-4">
-            <div class="col-md-6">
-              <label for="fullName" class="form-label">Full Name</label>
-              <input type="text" class="form-control custom-input" id="fullName" placeholder="John Doe" required>
-            </div>
-
-            <div class="col-md-6">
-              <label for="email" class="form-label">Email Address</label>
-              <input type="email" class="form-control custom-input" id="email" placeholder="john.doe@email.com" required>
-            </div>
-
-            <div class="col-12">
-              <label for="message" class="form-label">Message</label>
-              <textarea class="form-control custom-input textarea-field" id="message" placeholder="Write your message here..." required></textarea>
-            </div>
-          </div>
+    <div class="modal-body">
+      <div class="row g-4">
+        <div class="col-md-6">
+          <label for="fullName" class="form-label">Full Name</label>
+          <input type="text" class="form-control custom-input" id="fullName" placeholder="John Doe" required>
         </div>
 
-        <div class="modal-footer border-0 d-flex justify-content-center gap-3">
-          <button type="button" class="btn close-btn" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn send-btn">Send Message</button>
+        <div class="col-md-6">
+          <label for="email" class="form-label">Email Address</label>
+          <input type="email" class="form-control custom-input" id="email" placeholder="john.doe@email.com" required>
+        </div>
+
+        <div class="col-12">
+          <label for="message" class="form-label">Message</label>
+          <textarea class="form-control custom-input textarea-field" id="message" placeholder="Write your message here..." required></textarea>
         </div>
       </div>
-    </form>
+    </div>
+
+    <div class="modal-footer border-0 d-flex justify-content-center gap-3">
+      <button type="button" class="btn close-btn" data-bs-dismiss="modal">Close</button>
+      <button type="submit" class="btn send-btn">Send Message</button>
+    </div>
+  </div>
+</form>
   </div>
 </div>
-
-<style>
-  /* ✨ Center Modal & Main Style */
-  .modal-dialog-centered {
-    display: flex;
-    align-items: center;
-    min-height: calc(100vh - 1rem);
-  }
-
-  .modern-modal {
-    background: rgba(20, 20, 25, 0.96);
-    backdrop-filter: blur(25px);
-    border: 1px solid rgba(34, 211, 238, 0.25);
-    border-radius: 20px;
-    box-shadow: 0 0 40px rgba(34, 211, 238, 0.15);
-    color: #f4f4f5;
-    animation: modalFadeIn 0.4s ease;
-    padding: 0.5rem 0;
-  }
-
-  .modal-dialog.modal-lg {
-    max-width: 700px;
-    margin: auto;
-  }
-
-  .modal-title {
-    font-size: 1.6em;
-    color: #22d3ee;
-    font-weight: 700;
-  }
-
-  .modal-body {
-    padding: 1.8rem 2.5rem;
-  }
-
-  .modal-footer {
-    padding: 1.5rem;
-  }
-
-  /* ✨ Equal Inputs & Form Style */
-  .custom-input {
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 10px;
-    color: #fff;
-    padding: 0.95rem 1.1rem;
-    font-size: 1rem;
-    width: 100%;
-    height: 48px;
-    transition: all 0.3s ease;
-  }
-
-  .custom-input:focus {
-    border-color: #22d3ee;
-    box-shadow: 0 0 12px rgba(34, 211, 238, 0.35);
-    background: rgba(255, 255, 255, 0.15);
-  }
-
-  .textarea-field {
-    min-height: 140px;
-    resize: none;
-  }
-
-  .form-label {
-    font-weight: 500;
-    margin-bottom: 0.4rem;
-    color: #e4e4e7;
-  }
-
-  /* ✨ Buttons */
-  .send-btn {
-    background: linear-gradient(135deg, #22d3ee, #06b6d4);
-    color: #0a0a0a;
-    font-weight: 600;
-    padding: 12px 40px;
-    border-radius: 10px;
-    transition: all 0.3s ease;
-    border: none;
-    font-size: 1rem;
-  }
-
-  .send-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0 25px rgba(34, 211, 238, 0.45);
-  }
-
-  .close-btn {
-    background: rgba(255, 255, 255, 0.12);
-    color: #e4e4e7;
-    font-weight: 600;
-    padding: 12px 36px;
-    border-radius: 10px;
-    border: none;
-    transition: all 0.3s ease;
-  }
-
-  .close-btn:hover {
-    background: rgba(255, 255, 255, 0.25);
-  }
-
-  /* ✨ Close Icon */
-  .custom-close {
-    filter: invert(1) brightness(1.6);
-    opacity: 0.8;
-    transition: 0.25s ease;
-  }
-
-  .custom-close:hover {
-    opacity: 1;
-    transform: scale(1.1);
-  }
-
-  /* ✨ Animation */
-  @keyframes modalFadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(-15px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  /* ✨ Responsive Design */
-  @media (max-width: 768px) {
-    .modal-body {
-      padding: 1.2rem;
-    }
-    .send-btn,
-    .close-btn {
-      width: 100%;
-      padding: 12px 0;
-    }
-    .modal-footer {
-      flex-direction: column;
-      gap: 10px;
-    }
-    .custom-input {
-      height: auto;
-    }
-  }
-  /* Popup container */
-.popup {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background: #28a745;
-  color: white;
-  padding: 15px 25px;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  z-index: 9999;
-  opacity: 0;
-  transform: translateY(-20px);
-  transition: all 0.4s ease;
-  font-family: 'Segoe UI', sans-serif;
-  font-size: 16px;
-}
-
-/* Hidden state */
-.hidden {
-  display: none;
-}
-
-/* Animate when showing */
-.popup.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Error color */
-.popup.error {
-  background: #dc3545;
-}
-
-</style>
-
-<!-- ✅ Success / Error Popup -->
 <div id="popup" class="popup hidden">
   <div class="popup-content">
     <span id="popupIcon">✅</span>
     <p id="popupMessage">Message sent successfully!</p>
   </div>
 </div>
-
-
-
-
-<!-- Bootstrap JS -->
+<footer>
+    <div class="container">
+        <p>© 2025 Milbert Garinga. Designed & Built with passion.</p>
+    </div>
+</footer>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-<!-- EmailJS -->
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
 <script>
-  emailjs.init("ymaOOfW0kzk6EdQtO");
+    const cursorDot = document.querySelector('.cursor-dot');
+    const cursorOutline = document.querySelector('.cursor-outline');
 
-  const form = document.getElementById('contactForm');
-  const popup = document.getElementById('popup');
-  const popupMessage = document.getElementById('popupMessage');
-  const popupIcon = document.getElementById('popupIcon');
+    window.addEventListener('mousemove', (e) => {
+        cursorDot.style.left = e.clientX + 'px';
+        cursorDot.style.top = e.clientY + 'px';
+        
+        cursorOutline.style.left = e.clientX - 15 + 'px';
+        cursorOutline.style.top = e.clientY - 15 + 'px';
+    });
 
-  function showPopup(message, isError = false) {
-    popupMessage.textContent = message;
-    popupIcon.textContent = isError ? '❌' : '✅';
-    popup.classList.remove('hidden', 'error');
-    if (isError) popup.classList.add('error');
-    popup.classList.add('show');
+    const links = document.querySelectorAll('a, button');
+    links.forEach(link => {
+        link.addEventListener('mouseenter', () => {
+            cursorDot.style.transform = 'scale(1.5)';
+            cursorOutline.style.transform = 'scale(1.5)';
+        });
+        link.addEventListener('mouseleave', () => {
+            cursorDot.style.transform = 'scale(1)';
+            cursorOutline.style.transform = 'scale(1)';
+        });
+    });
+function openGallery(modalId) {
+document.getElementById(modalId).style.display = "block";
+}
+function closeGallery(modalId) {
+document.getElementById(modalId).style.display = "none";
+}
+window.onclick = function(event) {
+if (event.target.classList.contains('modal')) {
+event.target.style.display = "none";
+}
+}
+function openDownloadModal() {
+document.getElementById('downloadModal').classList.add('active');
+}
+function closeDownloadModal() {
+document.getElementById('downloadModal').classList.remove('active');
+}
+emailjs.init("ymaOOfW0kzk6EdQtO");
+const form = document.getElementById('contactForm');
+const popup = document.getElementById('popup');
+const popupMessage = document.getElementById('popupMessage');
+const popupIcon = document.getElementById('popupIcon');
+function showPopup(message, isError = false) {
+popupMessage.textContent = message;
+popupIcon.textContent = isError ? '❌' : '✅';
+popup.classList.remove('hidden', 'error');
+if (isError) popup.classList.add('error');
+popup.classList.add('show');
+setTimeout(() => {
+  popup.classList.remove('show');
+  setTimeout(() => popup.classList.add('hidden'), 400);
+}, 3000);
+}
+form.addEventListener('submit', function(event) {
+event.preventDefault();
+const params = {
+  from_name: document.getElementById('fullName').value,
+  email: document.getElementById('email').value,
+  message: document.getElementById('message').value
+};
 
-    // Hide after 3 seconds
-    setTimeout(() => {
-      popup.classList.remove('show');
-      setTimeout(() => popup.classList.add('hidden'), 400);
-    }, 3000);
-  }
-
-  form.addEventListener('submit', function(event) {
-    event.preventDefault();
-
-    const params = {
-      from_name: document.getElementById('fullName').value,
-      email: document.getElementById('email').value,
-      message: document.getElementById('message').value
-    };
-
-    emailjs.send("service_0955xsx", "template_nc81owq", params)
-      .then(function() {
-        showPopup("Message sent successfully to milbertgaringa5@gmail.com!");
-        form.reset();
-      }, function(error) {
-        showPopup("Failed to send message. Please try again later.", true);
-        console.error(error);
-      });
+emailjs.send("service_0955xsx", "template_nc81owq", params)
+  .then(function() {
+    showPopup("Message sent successfully to milbertgaringa5@gmail.com!");
+    form.reset();
+  }, function(error) {
+    showPopup("Failed to send message. Please try again later.", true);
+    console.error(error);
   });
+});
 </script>
-
-
-
-
-
-
-
-    <footer>
-        <div class="container">
-            <p>© 2025 Milbert Garinga. Designed & Built with passion.</p>
-        </div>
-    </footer>
-
-    <script>
-        // Custom cursor
-        const cursorDot = document.querySelector('.cursor-dot');
-        const cursorOutline = document.querySelector('.cursor-outline');
-
-        window.addEventListener('mousemove', (e) => {
-            cursorDot.style.left = e.clientX + 'px';
-            cursorDot.style.top = e.clientY + 'px';
-            
-            cursorOutline.style.left = e.clientX - 15 + 'px';
-            cursorOutline.style.top = e.clientY - 15 + 'px';
-        });
-
-        // Hover effect on links
-        const links = document.querySelectorAll('a, button');
-        links.forEach(link => {
-            link.addEventListener('mouseenter', () => {
-                cursorDot.style.transform = 'scale(1.5)';
-                cursorOutline.style.transform = 'scale(1.5)';
-            });
-            link.addEventListener('mouseleave', () => {
-                cursorDot.style.transform = 'scale(1)';
-                cursorOutline.style.transform = 'scale(1)';
-            });
-        });
-    </script>
 </body>
-</html>
+</html></parameter>
