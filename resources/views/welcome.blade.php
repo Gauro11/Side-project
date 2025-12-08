@@ -927,22 +927,22 @@
                 <a href="#contact" class="nav-link">Contact</a>
                 
                 <!-- Download APK Button -->
-                <button class="download-apk-btn" onclick="openDownloadModal()">
+                {{-- <button class="download-apk-btn" onclick="openDownloadModal()">
                     📱 Get App
-                </button>
+                </button> --}}
             </div>
         </div>
     </nav>
 
     <!-- Floating Download Button (Mobile) -->
-    <div class="floating-download">
+    {{-- <div class="floating-download">
         <button class="floating-btn" onclick="openDownloadModal()">
             📱 Download App
         </button>
-    </div>
+    </div> --}}
 
     <!-- Download Modal -->
-    <div id="downloadModal" class="download-modal">
+    {{-- <div id="downloadModal" class="download-modal">
         <div class="download-modal-content">
             <div class="modal-icon">📱</div>
             <h2 class="modal-title-download">Download Portfolio App</h2>
@@ -960,7 +960,7 @@
                 💡 Enable "Install from Unknown Sources" in your Android settings
             </p>
         </div>
-    </div>
+    </div> --}}
 
     <section id="home">
         <div class="container">
@@ -1124,7 +1124,7 @@
     <form id="contactForm" class="w-100">
       <div class="modal-content modern-modal">
         <div class="modal-header border-0 d-flex justify-content-between align-items-center">
-          <h5 class="modal-title fw-bold" id="messageModalLabel">💬 Send a Message</h5>
+          <h5 class="modal-title fw-bold" id="messageModalLabel">Send a Message</h5>
           <button type="button" class="btn-close custom-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
     <div class="modal-body">
